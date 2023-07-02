@@ -5,7 +5,8 @@ This application requires two config files for extracting data.
 		>user will just identify them and break them using seperator.
 		>what is the seperator used by user for breaking headings and data.
 		>Identify which column is not null to decide the row is valid. 
-		>Any additional logic on not null column to enforce the validity further.
+		>Any additional logic on not null column to enforce the validity further.  it requires column name in a line and logic in another line.
+		>6th line is to pick the column headers to cherry pick the columns for extraction.
 2. .log file This is also important file which supplies the information of total columns and their lengths. 
 
 Additioanal Logic enforcement.
