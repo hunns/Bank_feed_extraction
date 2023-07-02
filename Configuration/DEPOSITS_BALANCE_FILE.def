@@ -1,0 +1,22 @@
+#     Please make sure to create the first line with Data and seperate with '|' for identifing the column lenght
+#     Please make sure to create the second line with Header and seperate with '|' for identifing the column names to use on excel report.
+#     Please make sure to create the third line to specify seperator.  Here I have used '|'  and you can use any thing which suites your data. 
+#     Please make sure to create the fourth line to identify the column which is unique and not null. This is critical to extract only those rows which are having values. 
+#     Please make sure to create the fifth line to specify the additional logic to enforce on unique column. This will add additon logic to qualify the based on validation column. 
+
+
+#Exact row copied from extract to define the each column length
+      9112437797-9       |PRAGATHI-CC-PUB-IND-365D        |Mrs. HAJARATHAMMA  MADDALA           |    2,85,253.00|                  0.00|                   0.00|                      0.00|                    1Y|   6.85|            1,221.23|   OPENXXXXXXXXXXXXXXXXXXXXXXXXX               
+#Exact row copied from extract to define the each column names
+     ACCOUNT NUMBER      |ACCOUNT TYPE (DESCRIPTION)     |CUSTOMER NAME                      |AVAILABLE BALANCE      |UNCLEARED BALANCE          |DRAWING POWER                     |LIMIT        |TERM         |INT-RATE       |INT-AVAILABLE   |STATUS
+#Seperator used for spliting column name or data 
+|
+#Row validation field
+#ACCOUNT NUMBER 
+STATUS
+#Row validation logic
+#REMOVE_HYPHENS_AND_CONVERT_TO_NUMBER
+NOT_EMPTY_AFTER_TRIMMING_SPACES_AND_EQUAL_TO_DORMANT UNCLAIMED
+#Exact only below columns only
+     ACCOUNT NUMBER      |ACCOUNT TYPE (DESCRIPTION)     |CUSTOMER NAME                      |AVAILABLE BALANCE      |TERM         |INT-RATE       |INT-AVAILABLE   |STATUS
+#End of the data

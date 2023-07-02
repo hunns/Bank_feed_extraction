@@ -1,0 +1,44 @@
+This application requires two config files for extracting data. 
+1. .def file:  This is very importat file which supplies the information like 
+		>what is the each column length of the data.  This will help to generate the layout file(.log) which is used by application for processing each line.
+		>what are the hearders .  
+		>user will just identify them and break them using seperator.
+		>what is the seperator used by user for breaking headings and data.
+		>Identify which column is not null to decide the row is valid. 
+		>Any additional logic on not null column to enforce the validity further.
+2. .log file This is also important file which supplies the information of total columns and their lengths. 
+
+Additioanal Logic enforcement.
+
+REMOVE_HYPHENS_AND_CONVERT_TO_NUMBER  - This setting will removes hyphens within the not null column and converts to number.   Number should result >0 value.
+
+NOT_EMPTY_AFTER_TRIMMING_SPACES  - This setting will trim the spacess surrounding the condition column and check it is not empty.
+
+REMOVE_HYPHENS_AND_CONVERT_TO_NUMBER_AND_CHECK_GREATER_THAN_* - This setting will removes hyphens within the not null column and converts to number.   Number should result > given value value.
+								Examples
+								REMOVE_HYPHENS_AND_CONVERT_TO_NUMBER_AND_CHECK_GREATER_THAN_50 //This will check the condition column >50 OR 50.00
+								REMOVE_HYPHENS_AND_CONVERT_TO_NUMBER_AND_CHECK_GREATER_THAN_0.25 //This will check the condition column >0.25
+								Kindly note this logic won't work on minus/nagativevalues example greater than -10.00
+	
+REMOVE_HYPHENS_AND_CONVERT_TO_NUMBER_AND_CHECK_LESS_THAN_*- This setting will removes hyphens within the not null column and converts to number.   Number should result < given value value.
+								Examples
+								REMOVE_HYPHENS_AND_CONVERT_TO_NUMBER_AND_CHECK_LESS_THAN_50 // This will check the condition column <50 OR 50.00
+								REMOVE_HYPHENS_AND_CONVERT_TO_NUMBER_AND_CHECK_LESS_THAN_0.25  // This will check the condition column < 0.25
+								Kindly note this logic won't work on minus/nagative values example less than -10.00
+
+REMOVE_HYPHENS_AND_CONVERT_TO_NUMBER_AND_CHECK_EQUAL_TO_*This setting will removes hyphens within the not null column and converts to number.   Number should result = given value value.
+								Examples
+								REMOVE_HYPHENS_AND_CONVERT_TO_NUMBER_AND_CHECK_EQUAL_TO_50 //This will check the condition column =50 OR 50.00
+								REMOVE_HYPHENS_AND_CONVERT_TO_NUMBER_AND_CHECK_EQUAL_TO_0.25 //This will check the condition column= 0.25
+								Kindly note this logic won't work on minus/nagative values example less than -10.00
+NOT_EMPTY_AFTER_TRIMMING_SPACES_AND_EQUAL_TO_* - This setting will trim the spacess surrounding the condition column and check it is not empty and = to given value.
+								Examples
+								NOT_EMPTY_AFTER_TRIMMING_SPACES_AND_EQUAL_TO_SBCHQ-GEN-PUB-IND // This will check the condition column = SBCHQ-GEN-PUB-IND
+								NOT_EMPTY_AFTER_TRIMMING_SPACES_AND_EQUAL_TO_DORMANT UNCLAIMED // This will check the condition column = DORMANT UNCLAIMED
+
+NOT_EMPTY_AFTER_TRIMMING_SPACES_AND_NOT_EQUAL_TO_* - - This setting will trim the spacess surrounding the condition column and check it is not empty and = to given value.
+								Examples
+								NOT_EMPTY_AFTER_TRIMMING_SPACES_AND_EQUAL_TO_SBCHQ-GEN-PUB-IND // This will check the condition column <> SBCHQ-GEN-PUB-IND
+								NOT_EMPTY_AFTER_TRIMMING_SPACES_AND_EQUAL_TO_DORMANT UNCLAIMED // This will check the condition column <> DORMANT UNCLAIMED
+
+3. The 6th valid line should be the cherry picked columns for extractions.   Make sure the name are matching with the 2nd line Headers, otherwise you may lose the column for extraction. 

@@ -1,0 +1,20 @@
+#     Please make sure to create the first line with Data and seperate with '|' for identifing the column lenght
+#     Please make sure to create the second line with Header and seperate with '|' for identifing the column names to use on excel report.
+#     Please make sure to create the third line to specify seperator.  Here I have used '|'  and you can use any thing which suites your data. 
+#     Please make sure to create the fourth line to identify the column which is unique and not null. This is critical to extract only those rows which are having values. 
+#     Please make sure to create the fifth line to specify the additional logic to enforce on unique column. This will add additon logic to qualify the based on validation column. 
+
+
+#Exact row copied from extract to define the each column length
+        9101180326-0  |SHG-NRLM-IS-FARM               |Mrs. VISALAKSHMI SHG  C.KOTHAP |TIERED|            10,00,000.00|          10,00,000.00|          9,98,861.70-|                0.00|                   0.00|     00|        00|           9,98,861.70-| 23/06/2023| 22/06/2026| 23/06/2023|                  0.00|  00 00/00/0000|                  0.00|                  0.00|                  0.00|                  0.00|                  0.00|                  0.00|                  0.00|                  0.00|                  0.00|                290.00|                870.01|                  0.00|                  0.00
+#Exact row copied from extract to define the each column names
+      ACCOUNT NUMBER  |ACCOUNT TYPE (DESCRIPTION)    |CUSTOMERNAME                  |INT.RATE              |LIMIT               |DRAWING POWER     |CLEARED BALANCE       |UNCLEARED BALANCE       |IRREGULARITY   |IRAC-NEW |IRAC-OLD    |CURRENT BALANCE     |SANC DT    |EXP DT  |LAST FIN  DT      |EXP-LIMIT      |CROP RECON-DT        |UNPAID-INTREST|          UNPAID-CHARG-BAL|      UNPAID-PENAL-INT|          PROD-AMT-1|          PROD-AMT-2|               PROD-AMT-3|      PROD-AMT-PY-1|            PROD-AMT-PY-2|         PROD-AMT-PY-3|          PER-DAY-INT|             INT-ACCR|         PER-DY-PEAL-INT|           PENAL-INT-ACCR
+#Seperator used for spliting column name or data 
+|
+#Row validation field
+ACCOUNT NUMBER 
+#Row validation logic
+REMOVE_HYPHENS_AND_CONVERT_TO_NUMBER
+#Exact only below columns only
+      ACCOUNT NUMBER  |ACCOUNT TYPE (DESCRIPTION)    |CUSTOMERNAME                  |CLEARED BALANCE       |CURRENT BALANCE     |          PER-DAY-INT|             INT-ACCR
+#End of the data

@@ -1,0 +1,20 @@
+#     Please make sure to create the first line with Data and seperate with '|' for identifing the column lenght
+#     Please make sure to create the second line with Header and seperate with '|' for identifing the column names to use on excel report.
+#     Please make sure to create the third line to specify seperator.  Here I have used '|'  and you can use any thing which suites your data. 
+#     Please make sure to create the fourth line to identify the column which is unique and not null. This is critical to extract only those rows which are having values. 
+#     Please make sure to create the fifth line to specify the additional logic to enforce on unique column. This will add additon logic to qualify the based on validation column. 
+
+
+#Exact row copied from extract to define the each column length
+ 775|  1111 |  1251  |SBNCHQ-GEN-PUB-SEMI-URBAN        |  19037607898  |Mrs. LAKSHMI DEVI  BUDDA      |        |                     |             |               21.00|            16,179.72|  ATM WDL CHG
+#Exact row copied from extract to define the each column names
+SLNO | TYPE |INT-CAT |PRODUCT DESC                    |ACCOUNT NUMBER   |ACCOUNT HOLDER NAME               |TRF |ACCOUNT NO               |CR_AMOUNT          |DR_AMOUNT              |BALANCE  |NARRATION
+#Seperator used for spliting column name or data 
+|
+#Row validation field
+ACCOUNT NUMBER 
+#Row validation logic
+REMOVE_HYPHENS_AND_CONVERT_TO_NUMBER
+#Exact only below columns only
+SLNO| TYPE |INT-CAT |PRODUCT DESC |ACCOUNT NUMBER|ACCOUNT HOLDER NAME|DR_AMOUNT|BALANCE|NARRATION
+#End of the data
